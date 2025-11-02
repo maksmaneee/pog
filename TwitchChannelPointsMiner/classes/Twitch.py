@@ -687,10 +687,6 @@ class Twitch(object):
 
             if streamer.settings.community_goals is True:
                 self.contribute_to_community_goals(streamer)
-
-            if streamer.settings.community_goals is True:
-                self.contribute_to_community_goals(streamer)
-
     def make_predictions(self, event):
         decision = event.bet.calculate(event.streamer.channel_points)
         # selector_index = 0 if decision["choice"] == "A" else 1

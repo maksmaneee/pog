@@ -18,8 +18,8 @@ import os
 keep_alive()
 
 twitch_miner = TwitchChannelPointsMiner(
-    username=os.environ.get('username'),
-    password=os.environ.get('password'),           # If no password will be provided, the script will ask interactively
+    username=os.environ.get('TWITCH_USERNAME'),
+    password=os.environ.get('TWITCH_PASSWORD'),           # If no password will be provided, the script will ask interactively
     claim_drops_startup=False,                  # If you want to auto claim all drops from Twitch inventory on the startup
     priority=[                                  # Custom priority in this case for example:
         Priority.STREAK,                        # - We want first of all to catch all watch streak from all streamers
@@ -86,11 +86,11 @@ twitch_miner = TwitchChannelPointsMiner(
             stealth_mode=False,                  # If the calculated amount of channel points is GT the highest bet, place the highest value minus 1-2 points Issue #33
             delay_mode=DelayMode.FROM_END,      # When placing a bet, we will wait until `delay` seconds before the end of the timer
             delay=30,
-            minimum_points=15000,               # Place the bet only if we have at least 20k points. Issue #113
+            minimum_points=1000,               # Place the bet only if we have at least 20k points. Issue #113
             filter_condition=FilterCondition(
                 by=OutcomeKeys.TOTAL_USERS,     # Where apply the filter. Allowed [PERCENTAGE_USERS, ODDS_PERCENTAGE, ODDS, TOP_POINTS, TOTAL_USERS, TOTAL_POINTS]
                 where=Condition.LTE,            # 'by' must be [GT, LT, GTE, LTE] than value
-                value=5000
+                value=800
             )
         )
     )

@@ -201,22 +201,24 @@ class TwitchChannelPointsMiner:
             logger.error(
                 "Can't start analytics(), please set enable_analytics=True")
 
-    def mine(
+        def mine(
         self,
         streamers: list = [],
         blacklist: list = [],
         followers: bool = False,
         followers_order: FollowersOrder = FollowersOrder.ASC,
     ):
-self.run(streamers=streamers, blacklist=blacklist, followers=followers) 
+        self.run(streamers=streamers, blacklist=blacklist, followers=followers)
 
-     def run(
+    def run(
         self,
         streamers: list = [],
         blacklist: list = [],
         followers: bool = False,
         followers_order: FollowersOrder = FollowersOrder.ASC,
     ):
+        if self.running:
+            logger.error("You can't start multiple sessions of this instance!")
         if self.running:
             logger.error("You can't start multiple sessions of this instance!")
         else:

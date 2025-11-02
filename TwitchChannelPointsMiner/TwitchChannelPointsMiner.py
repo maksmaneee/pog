@@ -179,7 +179,7 @@ class TwitchChannelPointsMiner:
         for sign in [signal.SIGINT, signal.SIGSEGV, signal.SIGTERM]:
             signal.signal(sign, self.end)
 
-    def analytics(
+ def analytics(
         self,
         host: str = "127.0.0.1",
         port: int = 5000,
@@ -201,7 +201,7 @@ class TwitchChannelPointsMiner:
             logger.error(
                 "Can't start analytics(), please set enable_analytics=True")
 
-        def mine(
+    def mine(
         self,
         streamers: list = [],
         blacklist: list = [],
@@ -217,8 +217,6 @@ class TwitchChannelPointsMiner:
         followers: bool = False,
         followers_order: FollowersOrder = FollowersOrder.ASC,
     ):
-        if self.running:
-            logger.error("You can't start multiple sessions of this instance!")
         if self.running:
             logger.error("You can't start multiple sessions of this instance!")
         else:

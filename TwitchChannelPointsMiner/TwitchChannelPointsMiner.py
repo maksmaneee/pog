@@ -208,7 +208,8 @@ class TwitchChannelPointsMiner:
         followers: bool = False,
         followers_order: FollowersOrder = FollowersOrder.ASC,
     ):
-self.run(streamers=streamers, blacklist=blacklist, followers=followers)
+self.run(streamers=streamers, blacklist=blacklist, followers=followers) 
+
      def run(
         self,
         streamers: list = [],
@@ -295,7 +296,6 @@ self.run(streamers=streamers, blacklist=blacklist, followers=followers)
             # 3. DEACTIVATED: Check if the user is a moderator. (was used before the 5th of April 2021 to deactivate predictions)
             for streamer in self.streamers:
                 time.sleep(random.uniform(0.3, 0.7))
-                self.twitch.load_channel_points_context(streamer)
                 self.twitch.load_channel_points_context(streamer)
                 # self.twitch.viewer_is_mod(streamer)
 
